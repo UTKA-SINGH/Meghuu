@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="experienceStage">
+
+  <!-- side photo strips -->
+  <div class="photoStrip left" id="leftPhotoStrip"><div class="photoStripTrack" id="leftPhotoStripTrack"></div></div>
+  <div class="photoStrip right" id="rightPhotoStrip"><div class="photoStripTrack" id="rightPhotoStripTrack"></div></div>
+
+  <audio id="vintageSpeakerAudioElement" loop></audio>
+
+  <!-- SCENE 0: password gate -->
+  <div class="experienceScene isActive" id="scenePasswordGate">
+    <div class="paperCard">
+      <div class="washiTapeAccent"></div>
+      <h1>Hello Meghuu</h1>
+      <p class="passwordLabel">Enter the password:</p>
+      <input
+        type="text"
+        class="passwordInput"
+        id="passwordInput"
+        placeholder=""
+        autocomplete="off"
+        onkeydown="handlePasswordInputKeydown(event)">
+      <p class="passwordHint" id="passwordHint">Hint: your fav person's first name</p>
+      <p class="passwordFeedback" id="passwordFeedback"></p>
+      <button class="primaryButton" onclick="handlePasswordSubmit()">Unlock</button>
+    </div>
+  </div>
+
+  <!-- SCENE 1: consent -->
+  <div class="experienceScene" id="sceneConsent">
+    <div class="paperCard">
+      <div class="washiTapeAccent"></div>
+      <h1>Look, I made something for you 👀</h1>
+      <p>Do you want to open it?</p>
+      <div class="consentButtonArena" id="consentButtonArena">
+        <div class="consentButtonRow">
+          <button class="primaryButton" id="yesConsentButton" onclick="handleYesButtonClick()">Yes</button>
+          <button class="primaryButton" id="noConsentButton" onclick="handleNoButtonClick()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: start decoration -->
+  <div class="experienceScene" id="sceneStartDecoration">
+    <button class="primaryButton" id="startDecorationButton" onclick="handleStartDecorationClick()">Start Decoration</button>
+  </div>
+
+  <!-- SCENE 3: room decoration — the cake card appears in this same
+       scene afterward so all the decorations stay visible behind it -->
+  <div class="experienceScene" id="sceneRoomDecoration">
+    <div class="roomBackWall" id="roomBackWall"></div>
+
+    <div class="roomDecorationStatusCard paperCard" id="roomDecorationStatusCard">
+      <div class="washiTapeAccent"></div>
+      <h2>decorating the room...</h2>
+    </div>
+
+    <div class="birthdayCakeCard roomOverlayCard paperCard" id="birthdayCakeCard">
+      <div class="washiTapeAccent"></div>
+      <h2>Make a wish</h2>
+      <div class="cakeAssembly" id="cakeAssembly">
+        <div class="birthdayCandle">
+          <div class="birthdayCandleFlame" id="birthdayCandleFlame"></div>
+        </div>
+        <div class="cakeTier cakeTierTop">
+          <div class="cakePipedBorder" id="topTierPipedBorder"></div>
+        </div>
+        <div class="cakeTier cakeTierBottom">
+          <div class="cakePipedBorder" id="bottomTierPipedBorder"></div>
+          <div class="cakeDrip" id="bottomTierDrip"></div>
+        </div>
+        <div class="cakePlate"></div>
+      </div>
+      <button class="primaryButton" id="blowCandleButton" onclick="handleBlowCandleClick()">Blow the candle</button>
+    </div>
+
+    <div class="roomOverlayCard paperCard" id="finalMessageCard">
+      <div class="washiTapeAccent"></div>
+      <h2>Happy Birthday 🎂</h2>
+      <div class="birthdayMessageTextContainer" id="birthdayMessageTextContainer"></div>
+      <div class="signatureLine" id="signatureLine">with love, Utkarsh</div>
+      <button class="primaryButton replayExperienceButton" id="replayExperienceButton" onclick="handleReplayClick()">🎉 replay</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
