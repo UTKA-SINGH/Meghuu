@@ -17,6 +17,7 @@
   --color-mustard: #F2CB6C;
   --color-lavender: #C9A0E8;
   --color-skyblue: #A6CBEA;
+  --photo-strip-width: 150px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +30,7 @@ body {
   position: relative;
 }
 
-#experienceStage { position: relative; width: 100%; height: 100vh; }
+#experienceStage { position: relative; width: 100%; height: 100vh; height: 100dvh; }
 
 /* ---------------- shared: paper card ---------------- */
 .paperCard {
@@ -39,7 +40,7 @@ body {
   border-radius: 4px;
   padding: 40px 30px;
   max-width: 460px;
-  width: 90%;
+  width: min(90%, calc(100vw - 2 * var(--photo-strip-width) - 32px));
   box-shadow: 7px 7px 0 rgba(58,50,38,0.15);
   transform: rotate(-1deg);
   z-index: 4;
@@ -73,13 +74,15 @@ body {
 .experienceScene {
   position: absolute; inset: 0;
   display: none;
-  align-items: center; justify-content: center;
+  align-items: center; justify-content: safe center;
   flex-direction: column;
   text-align: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.6s ease;
   z-index: 2;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .experienceScene.isActive { display: flex; opacity: 1; }
 
@@ -134,7 +137,7 @@ body {
 /* ---------------- side photo strips ---------------- */
 .photoStrip {
   position: fixed; top: 0; bottom: 0;
-  width: 120px;
+  width: var(--photo-strip-width);
   overflow: hidden;
   z-index: 3;
   opacity: 0;
@@ -172,10 +175,10 @@ body {
    than a plain thumbnail */
 .polaroidFrame {
   position: relative;
-  width: 92px;
+  width: 116px;
   box-sizing: border-box;
   background: #fff;
-  padding: 6px 6px 16px 6px;
+  padding: 7px 7px 19px 7px;
   border-radius: 2px;
   box-shadow: 2px 2px 0 rgba(58,50,38,0.12);
   display: block;
@@ -200,7 +203,7 @@ body {
   font-family: 'Caveat', cursive;
   font-weight: 700;
   color: var(--color-ink);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1;
   pointer-events: none;
   white-space: nowrap;
@@ -253,10 +256,16 @@ body {
 }
 
 @media (max-width: 560px) {
-  .photoStrip { width: 62px; }
-  .polaroidFrame { width: 50px; padding: 3px 3px 9px 3px; }
+  :root { --photo-strip-width: 80px; }
+  .polaroidFrame { width: 66px; padding: 4px 4px 11px 4px; }
+  .polaroidCaption { font-size: 9px; bottom: 0.5px; }
+  .photoZoomPreview .polaroidCaption { font-size: 13px; }
+}
+
+@media (max-width: 400px) {
+  :root { --photo-strip-width: 56px; }
+  .polaroidFrame { width: 44px; padding: 3px 3px 8px 3px; }
   .polaroidCaption { font-size: 7px; bottom: 0; }
-  .photoZoomPreview .polaroidCaption { font-size: 12px; }
 }
 
 /* ================================================================
@@ -438,6 +447,7 @@ body {
 
 @media (max-width: 560px) {
   .vintageSpeaker { left: 58px; width: 104px; }
+  .speakerPlayPauseButton { width: 36px; height: 36px; font-size: 0.8rem; left: 10px; bottom: 4px; }
 }
 
 .roomDecorationStatusCard {
@@ -552,8 +562,14 @@ body {
    SCENE 5 — final message
    ================================================================ */
 #finalMessageCard { max-width: 500px; }
+@media (min-width: 900px) {
+  #finalMessageCard { max-width: 640px; }
+}
+@media (min-width: 1400px) {
+  #finalMessageCard { max-width: 720px; }
+}
 .birthdayMessageTextContainer {
-  text-align: left; margin-top: 16px;
+  text-align: justify; text-justify: inter-word; margin-top: 16px;
   font-size: 0.98rem; line-height: 1.6; color: #4a4236;
   min-height: 90px;
   white-space: pre-line;
@@ -629,9 +645,34 @@ body {
   animation: floatingGentleBob 2.6s ease-in-out infinite;
 }
 
-@media (max-width: 480px) {
-  .paperCard h1 { font-size: 2rem; }
-  .paperCard { padding: 32px 20px; }
+@media (max-width: 600px) {
+  .paperCard { padding: 26px 16px; }
+  .paperCard h1 { font-size: 1.55rem; }
+  .paperCard h2 { font-size: 1.4rem; }
+  .paperCard p { font-size: 0.85rem; }
+  .primaryButton { font-size: 0.8rem; padding: 9px 20px; }
+  .experienceScene { padding: 16px; }
+  .consentButtonRow { gap: 10px; }
+
+  .buntingFlag { width: 17px; height: 20px; font-size: 0.46rem; padding-top: 2px; }
+  .buntingBanner { gap: 2px; }
+
+  .roomBalloon { width: 46px; }
+  .hangingLantern svg { width: 34px; }
+
+  .cakeAssembly { transform: scale(0.78); transform-origin: bottom center; margin: 16px 0 4px; }
+  .birthdayCakeCard { padding-top: 34px; }
+
+  .floatingDecorativeElement { font-size: 1.05rem; }
+  .signatureLine { font-size: 1.4rem; }
+  .birthdayMessageTextContainer { font-size: 0.82rem; }
+}
+
+@media (max-width: 380px) {
+  .paperCard { padding: 22px 13px; }
+  .paperCard h1 { font-size: 1.35rem; }
+  .paperCard h2 { font-size: 1.2rem; }
+  .buntingFlag { width: 14px; height: 17px; font-size: 0.4rem; }
 }
 
 /* ================================================================

@@ -211,7 +211,9 @@ function initializePhotoStripZoomPreview() {
   let settleTimeoutId = null;
 
   function getEnlargedPreviewWidth() {
-    return window.innerWidth <= 560 ? 104 : 152;
+    if (window.innerWidth <= 560) return 148;
+    if (window.innerWidth <= 900) return 180;
+    return 230;
   }
 
   // Snaps the preview to a rect with no transition (used to plant it exactly
@@ -833,14 +835,14 @@ function seedFloatingDecorativeElements() {
   const finalMessageCard = document.getElementById('finalMessageCard');
   const decorativeEmojiList = ['🤍', '💛', '🌸', '✨', '⭐', '💫', '🌷', '💗'];
   const positions = [
-    { top: '-18px', left: '-16px' },
-    { top: '-12px', right: '-18px' },
-    { top: '22%', left: '-26px' },
-    { top: '30%', right: '-24px' },
-    { bottom: '-16px', left: '8%' },
-    { bottom: '-14px', right: '10%' },
-    { top: '55%', left: '-20px' },
-    { top: '62%', right: '-18px' }
+    { top: '-14px', left: '-10px' },
+    { top: '-10px', right: '-12px' },
+    { top: '22%', left: '-14px' },
+    { top: '30%', right: '-14px' },
+    { bottom: '-12px', left: '8%' },
+    { bottom: '-10px', right: '10%' },
+    { top: '55%', left: '-12px' },
+    { top: '62%', right: '-12px' }
   ];
   positions.forEach(function (position, index) {
     const element = document.createElement('div');
@@ -857,7 +859,7 @@ function seedFloatingDecorativeElements() {
   bonusSparkle.id = 'hiddenBonusSparkle';
   bonusSparkle.textContent = '🎆';
   bonusSparkle.style.top = '50%';
-  bonusSparkle.style.right = '-32px';
+  bonusSparkle.style.right = '-16px';
   bonusSparkle.onclick = handleHiddenBonusSparkleTap;
   finalMessageCard.appendChild(bonusSparkle);
 }
