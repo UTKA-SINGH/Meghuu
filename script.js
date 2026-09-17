@@ -5,7 +5,7 @@ const birthYear = 2004;
 const birthMonth = 9;
 const birthDay = 19;
 
-const vintageSpeakerAudioTrackUrl = "Masakali Delhi 6 128 Kbps.mp3"; // e.g. "happy-birthday-instrumental.mp3"
+const vintageSpeakerAudioTrackUrl = "Happy Birthday Instrumental.mp3"; // e.g. "happy-birthday-instrumental.mp3"
 
 const girlfriendPhotoUrls = [
   "photos/1.jpg",
