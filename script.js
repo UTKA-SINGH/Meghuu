@@ -48,11 +48,11 @@ const birthdayMessageText =
 
 const floatingElementReactionMessages = [
   "you make me feel special in ways I can't explain",
-  "your laugh is genuinely my favorite sound",
+  "your eyes are genuinely my favorite",
   "you're way funnier than you think you are",
-  "being around you is just... easy",
-  "you notice things most people don't",
-  "you deserve every good thing coming your way"
+  "thanku for caring about me so much",
+  "you are the most beautiful person I've ever met",
+  "you deserve every happiess in the world",
 ];
 
 /* ============================================================
