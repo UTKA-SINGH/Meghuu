@@ -319,11 +319,14 @@ body {
    ================================================================ */
 #sceneRoomDecoration {
   background: linear-gradient(180deg, #EFE3CE 0%, var(--color-paper) 60%);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .roomBackWall {
-  position: absolute; inset: 0;
+  position: fixed; inset: 0;
   z-index: 1;
+  pointer-events: none;
 }
 
 /* bunting banner */
@@ -402,7 +405,8 @@ body {
 
 /* vintage gramophone speaker */
 .vintageSpeaker {
-  position: absolute; bottom: 14px; left: 100px;
+  position: absolute; bottom: 14px;
+  left: calc(var(--photo-strip-width) + 24px);
   width: 128px;
   z-index: 5;
 }
@@ -416,6 +420,7 @@ body {
 @keyframes recordSpin { to { transform: rotate(360deg); } }
 
 .speakerPlayPauseButton {
+  pointer-events: auto;
   position: absolute; left: 14px; bottom: 6px;
   width: 46px; height: 46px;
   border-radius: 50%;
@@ -446,7 +451,7 @@ body {
 }
 
 @media (max-width: 560px) {
-  .vintageSpeaker { left: 58px; width: 104px; }
+  .vintageSpeaker { left: calc(var(--photo-strip-width) + 14px); width: 104px; }
   .speakerPlayPauseButton { width: 36px; height: 36px; font-size: 0.8rem; left: 10px; bottom: 4px; }
 }
 
