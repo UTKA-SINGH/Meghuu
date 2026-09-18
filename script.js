@@ -29,7 +29,26 @@ const girlfriendPhotoUrls = [
   "photos/19.jpg",
   "photos/20.jpg",
   "photos/21.jpg",
-  "photos/22.jpg"
+  "photos/22.jpg",
+  "photos/23.jpg",
+  "photos/24.jpg",
+  "photos/25.jpg",
+  "photos/26.jpg",
+  "photos/27.jpg",
+  "photos/28.jpg",
+  "photos/29.jpg",
+  "photos/30.jpg",
+  "photos/31.jpg",
+  "photos/32.jpg",
+  "photos/33.jpg",
+  "photos/34.jpg",
+  "photos/35.jpg",
+  "photos/36.jpg",
+  "photos/37.jpg",
+  "photos/38.jpg",
+  "photos/39.jpg",
+  "photos/40.jpg",
+  "photos/41.jpg"
 ];
 
 const birthdayMessageText =
