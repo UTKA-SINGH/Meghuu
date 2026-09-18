@@ -60,7 +60,7 @@ const birthdayMessageText =
   "love you deserve. May you keep smiling, chasing your dreams, and becoming the amazing person you're " +
   "meant to be.\n\n" +
   "I wish I could celebrate with you in person today, but until then, know that I'm sending you the " +
-  "biggest virtual hug and all my best wishes.\n\n" +
+  "biggest virtual hug and all my best wishes." +
   "Thank you for being such an incredible loved one . No matter how many miles separate us, you'll " +
   "always have a special place in my heart.\n\n" +
   "Have the most beautiful birthday Megha, you deserve it \u2665";
