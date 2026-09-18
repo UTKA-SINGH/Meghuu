@@ -54,7 +54,7 @@ const girlfriendPhotoUrls = [
 const birthdayMessageText =
   "Happy Birthday to my favourite girl from miles away \u2665 Even though we're far apart, " +
   "I'm so grateful that distance has never changed our friendship. Thank you for being the kind, " +
-  "caring, funny and wonderful person you are. You've been there through so many moments of my life, " +
+  "caring, funny and wonderful person you are, " +
   "and I honestly can't imagine my journey without you in it. \u2665\n\n" +
   "I hope this year brings you endless happiness, good health, exciting opportunities, and all the " +
   "love you deserve. May you keep smiling, chasing your dreams, and becoming the amazing person you're " +
