@@ -120,7 +120,7 @@ function throttle(callback, delayMs) {
    case-insensitive, so "utkarsh", "Utkarsh", and "UTKARSH" (and
    the same for every other name in the list) all work.
    ============================================================ */
-const correctPasswords = ["utkarsh", "varsha", "ishant", "lalita", "sanjay"];
+const correctPasswords = ["utkarsh", "varsha", "ishant", "lalita", "sanjay", "preeti"];
 const passwordHintStages = [
   "Hint: your fav person's first name",
   "Hint: think of the people closest to you",
