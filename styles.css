@@ -458,6 +458,7 @@ body {
 .roomDecorationStatusCard {
   position: relative; z-index: 6;
   opacity: 0;
+  margin-top: clamp(64px, 11vh, 130px);
   transition: opacity 0.4s ease, transform 0.4s ease;
   animation: statusCardAppear 0.5s ease 1.6s forwards;
 }
@@ -475,6 +476,7 @@ body {
   position: relative; z-index: 6;
   opacity: 0;
   transform: scale(0.92);
+  margin-top: clamp(64px, 11vh, 130px);
   transition: opacity 0.4s ease, transform 0.4s ease;
   display: none;
 }
