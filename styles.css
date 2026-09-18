@@ -566,7 +566,18 @@ body {
 /* ================================================================
    SCENE 5 — final message
    ================================================================ */
-#finalMessageCard { max-width: 500px; }
+#finalMessageCard {
+  max-width: 500px;
+  max-height: min(72vh, 620px);
+  display: flex;
+  flex-direction: column;
+}
+#finalMessageCard.isVisible { display: flex; }
+#finalMessageCard h2,
+#finalMessageCard .signatureLine,
+#finalMessageCard .replayExperienceButton {
+  flex: 0 0 auto;
+}
 @media (min-width: 900px) {
   #finalMessageCard { max-width: 640px; }
 }
@@ -578,6 +589,9 @@ body {
   font-size: 0.98rem; line-height: 1.6; color: #4a4236;
   min-height: 90px;
   white-space: pre-line;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 6px;
 }
 .typewriterCursor {
   display: inline-block;

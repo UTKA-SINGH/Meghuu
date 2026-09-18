@@ -5,7 +5,7 @@ const birthYear = 2004;
 const birthMonth = 9;
 const birthDay = 19;
 
-const vintageSpeakerAudioTrackUrl = "Happy Birthday Instrumental.mp3"; // e.g. "happy-birthday-instrumental.mp3"
+const vintageSpeakerAudioTrackUrl = "Happy Birthday Instrumental.mp3";
 
 const girlfriendPhotoUrls = [
   "photos/1.jpg",
@@ -96,16 +96,16 @@ function throttle(callback, delayMs) {
 /* ============================================================
    SCENE 0: password gate
    ------------------------------------------------------------
-   Wrong guesses escalate the hint in three stages. Change
-   correctPassword below to whatever you want the answer to be —
-   comparison is case-insensitive so "utkarsh", "Utkarsh", or
-   "UTKARSH" all work.
+   Wrong guesses escalate the hint in three stages. Add or remove
+   accepted names in correctPasswords below — comparison is
+   case-insensitive, so "utkarsh", "Utkarsh", and "UTKARSH" (and
+   the same for every other name in the list) all work.
    ============================================================ */
-const correctPassword = "utkarsh";
+const correctPasswords = ["utkarsh", "varsha", "ishant", "lalita", "sanjay"];
 const passwordHintStages = [
   "Hint: your fav person's first name",
-  "Hint: it starts with \u201cU\u201d",
-  "Hint: Utk...."
+  "Hint: think of the people closest to you",
+  "Hint: try a nickname too"
 ];
 let passwordWrongAttempts = 0;
 
@@ -121,7 +121,7 @@ function handlePasswordInputKeydown(keyEvent) {
 function handlePasswordSubmit() {
   const enteredValue = passwordInputEl.value.trim().toLowerCase();
 
-  if (enteredValue === correctPassword) {
+  if (correctPasswords.includes(enteredValue)) {
     passwordFeedbackEl.textContent = '';
     revealPhotoStripsAndBeginScrolling();
     revealNextScene('sceneConsent');
@@ -636,7 +636,11 @@ function beginRoomDecorationSequence() {
     </svg>
     <button class="speakerPlayPauseButton" id="speakerPlayPauseButton" onclick="toggleVintageSpeakerPlayback()">▶</button>
   `;
-  setTimeout(function () { roomBackWall.appendChild(vintageSpeaker); }, 2400);
+  setTimeout(function () {
+    roomBackWall.appendChild(vintageSpeaker);
+    // auto-start the birthday song as soon as the speaker appears
+    if (!vintageSpeakerIsPlaying) toggleVintageSpeakerPlayback();
+  }, 2400);
 
   const totalSequenceDuration = 2400 + balloonPositions.length * 250 + 1400;
   setTimeout(function () {
